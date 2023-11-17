@@ -1,21 +1,17 @@
-import { weatherOptions } from "../../utils/WeatherOptions";
-import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+import { weatherOptions } from "../../utils/Constants";
 import "./WeatherCard.css";
-import "../App/App";
-import { useContext } from "react";
 
-const WeatherCard = ({ day, type, weatherTemp = "" }) => {
-  const imageSrc = weatherOptions.find((i) => {
-    return i.day === day && i.type === type;
+const WeatherCard = ({ day = true, type = "Sunny", weatherTemp = "" }) => {
+  const weatherOption = weatherOptions.find((item) => {
+    return item.day === day && item.type === type;
   });
-  const imageSrcUrl = imageSrc ? imageSrc.url : "";
-  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
+  const imageSrcUrl = weatherOption.url || "";
+
   return (
-    <section className="weather__section">
-      <div className="weather__temp">
-        {weatherTemp}º{currentTemperatureUnit}
-      </div>
-      <img src={imageSrcUrl} className="weather__image" alt={type} />
+    <section className="weather" id="weather">
+      <div className="weather_info">{weatherTemp}°F</div>
+      <img src={imageSrcUrl} className="weather_image" />
     </section>
   );
 };

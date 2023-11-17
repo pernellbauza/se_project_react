@@ -5,25 +5,32 @@ const ModalWithForm = ({
   buttonText,
   title,
   onClose,
-  modalName,
-  isOpen,
-  onSubmit,
+  name,
+  state = { disabled: true },
+  ref,
 }) => {
   return (
-    <div className={`modal modal_type_${modalName}`}>
-      <div className="modal__content">
-        <button
-          className="button__close-modal"
-          type="button"
-          onClick={onClose}
-        />
-        <form className="modal__form" onSubmit={onSubmit}>
+    <div className="modal__overlay" ref={ref}>
+      <div className={`modal modal_type_${name}`}>
+        <div className="modal__content">
+          <button
+            className="modal__close-button"
+            type="button"
+            onClick={onClose}
+          ></button>
           <h3 className="modal__title">{title}</h3>
-          {children}
-          <button className={`button__submit-modal_${modalName}`} type="submit">
-            {buttonText}
-          </button>
-        </form>
+
+          <form className="modal__add-form">
+            {children}
+            <button
+              className="modal__add-form_button"
+              disabled={state}
+              type="submit"
+            >
+              {(buttonText = "Add garment")}
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

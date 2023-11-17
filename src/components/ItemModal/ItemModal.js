@@ -1,39 +1,19 @@
-import "./ItemModal.css";
-import CurrentUserContext from "../../contexts/CurrentUserContext";
-import React from "react";
-
-const ItemModal = ({ selectedCard, onClose, onDeleteCard, buttonText }) => {
-  const currentUser = React.useContext(CurrentUserContext);
-  const isOwn = selectedCard.owner === currentUser._id;
-
-  const handleDeleteCard = () => {
-    onDeleteCard(selectedCard);
-  };
-
-  const itemDeleteButtonClassName = `button__delete-preview ${isOwn ? 'button__delete-preview_visible' : 'button__delete-preview_hidden'}`;
-
+const ItemModal = ({ selectedCard, onClose }) => {
   return (
-    <div className={`modal`}>
-      <div className="modal__content-preview">
-        <button
-          className="button__close-modal-white"
-          type="button"
-          onClick={onClose}
-        ></button>
-        <img
-          src={selectedCard.imageUrl}
-          className="modal__image-preview"
-          alt={selectedCard.name}
-        />
-        <h3 className="modal__preview-name">{selectedCard.name}</h3>
-        <div className="modal__preview-weather">
-          Weather: {selectedCard.weather}
+    <div className="modal__overlay">
+      <div className={`modal`}>
+        <div className="modal__content modal__content-item">
+          <button
+            className="modal__close-button modal__close-button_image"
+            type="button"
+            onClick={onClose}
+          ></button>
+          <img className="modal__image" src={selectedCard.link}></img>
+          <div className="modal__description">
+            <div>{selectedCard.name}</div>
+            <div>weather type: {selectedCard.weather}</div>
+          </div>
         </div>
-        {isOwn && (
-        <button className={itemDeleteButtonClassName} onClick={handleDeleteCard}>
-          {buttonText}
-        </button>
-           )} 
       </div>
     </div>
   );
