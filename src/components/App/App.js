@@ -83,8 +83,8 @@ function App() {
           setActiveModal={setActiveModal}
         >
           <div className="modal__input-container">
-            <p className="modal__input-title">Name</p>
             <label className="modal__label">
+              Name
               <input
                 className="modal__input"
                 required
@@ -95,8 +95,8 @@ function App() {
                 placeholder="Name"
               />
             </label>
-            <p className="modal__input-title">Image</p>
             <label className="modal__label">
+              Image
               <input
                 className="modal__input"
                 required
@@ -111,16 +111,19 @@ function App() {
           <p className="modal__radio-title">select weather type:</p>
           <div className="modal__radio-buttons">
             <div>
-              <input type="radio" name="weatherType" id="hot" value="hot" />
-              <label>Hot</label>
+              <label>
+                <input type="radio" name="weatherType" id="hot" value="hot" />Hot
+              </label>
             </div>
             <div>
-              <input type="radio" name="weatherType" id="warm" value="warm" />
-              <label>Warm</label>
+              <label>
+                <input type="radio" name="weatherType" id="warm" value="warm" />Warm
+              </label>
             </div>
             <div>
-              <input type="radio" name="weatherType" id="cold" value="cold" />
-              <label>Cold</label>
+              <label>
+                <input type="radio" name="weatherType" id="cold" value="cold" />Cold
+              </label>
             </div>
           </div>
         </ModalWithForm>
