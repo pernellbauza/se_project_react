@@ -2,7 +2,7 @@ import "./ModalWithForm.css";
 
 const ModalWithForm = ({
   children,
-  buttonText,
+  buttonText = "Save",
   title,
   onClose,
   name,
@@ -17,13 +17,13 @@ const ModalWithForm = ({
             className="modal__close-button"
             type="button"
             onClick={onClose}
-          ></button>
+          />
           <h3 className="modal__title">{title}</h3>
 
-          <form className="modal__add-form">
+          <form className="modal__form">
             {children}
             <button
-              className="modal__add-form_button"
+              className="modal__form_button"
               disabled={state}
               type="submit"
             >

@@ -93,12 +93,12 @@
   bottom: 5%;
 }
 
-.modal__add-form {
+.modal__form {
   display: flex;
   flex-direction: column;
 }
 
-.modal__add-form_button {
+.modal__form_button {
   position: relative;
   top: 32px;
   border-radius: 4px;
@@ -114,17 +114,17 @@
   line-height: 20px;
 }
 
-.modal__add-form_button:hover {
+.modal__form_button:hover {
   background: rgba(0, 0, 0, 0.6);
   cursor: pointer;
 }
 
-.modal__add-form_button:disabled {
+.modal__form_button:disabled {
   background: rgba(0, 0, 0, 0.3);
   cursor: not-allowed;
 }
 
-.modal__add-form_button:disabled:hover {
+.modal__form_button:disabled:hover {
   background: rgba(0, 0, 0, 0.3);
   cursor: not-allowed;
 }
