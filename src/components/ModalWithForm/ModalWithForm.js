@@ -27,7 +27,7 @@ const ModalWithForm = ({
               disabled={state}
               type="submit"
             >
-              {(buttonText = "Add garment")}
+              {buttonText}
             </button>
           </form>
         </div>
