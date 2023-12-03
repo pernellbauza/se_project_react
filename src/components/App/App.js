@@ -1,7 +1,6 @@
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import React, { useEffect, useState } from "react";
 import {
@@ -9,8 +8,14 @@ import {
   locationData,
   parseWeatherData,
 } from "../../utils/WeatherApi";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import AddItemModal from "../AddItemModal/AddItemModal";
+import Profile from "../Profile/Profile";
+import DeleteItemModal from "../DeleteItemModal/DeleteItemModal";
+import { getItems, postItems, deleteItems } from "../../utils/api";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -19,6 +24,8 @@ function App() {
   const [city, setCity] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
+  // const [isLoading, setIsLoading] = React.useState(false);
+  // ^^ add later for better code
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -95,11 +102,11 @@ function App() {
         const city = locationData(data);
         setTemp(temperature);
         setCity(city);
-        // setType(parseWeatherTYpe(data))
+        // setType(parseWeatherType(data))
         // setTime(Date.now())
       })
       .catch((error) => {
-        console.log("Error: An error occurred", error);
+        console.error("Error: An error occurred", error);
       });
   }, []);
 
@@ -111,7 +118,7 @@ function App() {
       .catch((error) => {
         console.error("Error: An error occurred", error);
       });
-  }, []);  
+  }, []);
 
   return (
     <CurrentTemperatureUnitContext.Provider
