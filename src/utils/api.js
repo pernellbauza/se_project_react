@@ -17,15 +17,17 @@ export function getItems() {
 
 // POST https://localhost:3001/items
 
-export function postItems(values) {
-  return fetch(`${baseUrl}/items`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(values),
-  }).then(processServerResponse);
-}
+export const postItems = ({ name, imageUrl, weather }) => {
+    return fetch(`${baseUrl}/items`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        imageUrl,
+        weather,
+      }),
+    }).then(processServerResponse);
+  };
 
 // DELETE https://localhost:3001/items/:id
 

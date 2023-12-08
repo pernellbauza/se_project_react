@@ -125,7 +125,7 @@ function App() {
       value={{ currentTemperatureUnit, handleToggleSwitchChange }}
     >
       <Header
-        onCreate={handleCreateModal}
+        onCreateModal={handleCreateModal}
         city={city}
         currentDate={currentDate}
       />
@@ -141,7 +141,7 @@ function App() {
           <Profile
             onSelectCard={handleSelectedCard}
             clothingItems={clothingItems}
-            onCreate={handleCreateModal}
+            onCreateModal={handleCreateModal}
           ></Profile>
         </Route>
       </Switch>
