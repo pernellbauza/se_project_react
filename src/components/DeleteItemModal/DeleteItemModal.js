@@ -3,35 +3,31 @@ import "../ModalWithForm/ModalWithForm.css";
 const DeleteItemModal = ({ onClose, deleteCard }) => {
   return (
     <div className={`modal delete`}>
-      <div className="delete__modal-container">
-        <div className="delete__modal">
-          <div className="delete__modal-header">
-            <button className="delete__modal-close">
+      <div className="modal__confirm-content">
+          <button className="modal__close-button">
               <img src={closeButton} onClick={onClose} alt="Close Button"></img>
-            </button>
-          </div>
-
-          <div className="delete__modal-content">
-            <p className="delete__modal-text">
-              Are you sure you want to delete this item?
-            </p>
-            <p className="delete__modal-text">This action is irreversible.</p>
-          </div>
-          <div className="delete__modal-footer">
+          </button>
+          <div>Are you sure you want to delete this item?</div>
+          <div>This action is irreversible.</div>
+    
+          <div className="modal__confirm-buttons">
             <button
-              className="delete_btn delete_btn-confirm"
+              className="modal__confirm-button"
+              type="button"
               onClick={deleteCard}
             >
               Yes, delete item
             </button>
-            <button className="delete_btn delete_btn-cancel" onClick={onClose}>
+            <button className="modal__cancel-button" 
+              type="button"
+              onClick={onClose}>
               Cancel
             </button>
-          </div>
-        </div>
       </div>
+    </div>
     </div>
   );
 };
+
 
 export default DeleteItemModal;

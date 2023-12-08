@@ -1,4 +1,4 @@
-import "./ClothesSection.css";
+import "../ClothesSection/ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
 const ClothesSection = ({ clothingItems, onSelectCard, onCreateModal }) => {

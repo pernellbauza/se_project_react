@@ -170,5 +170,4 @@ function App() {
     </CurrentTemperatureUnitContext.Provider>
   );
 }
-
 export default App;

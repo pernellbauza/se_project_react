@@ -1,28 +1,23 @@
-import SideBar from "../SideBar/SideBar.js";
-import ClothesSection from "../ClothesSection/ClothesSection.js";
+import React from 'react';
+import SideBar from "./SideBar";
+import ClothesSection from "./ClothesSection";
 import "./Profile.css";
-const Profile = ({ onCreate, clothingItems, onSelectCard }) => {
-  return (
-    <div className="profile">
-      <SideBar />
-      <div className="profile__items-container">
-        <div className="profile__items-text">
-          Your Items
-          <button
-            className="profile__add-button"
-            onClick={onCreate}
-            type="button"
-          >
-            + Add new
-          </button>
+
+const Profile = ({ clothingItems, onSelectCard, onCreateModal }) => {
+    return (
+      <div className="profile">
+        <div className="profile__sidebar">
+          <SideBar />
         </div>
-        <ClothesSection
-          clothingItems={clothingItems}
-          onSelectCard={onSelectCard}
-        />
+        <div>
+          <ClothesSection
+            onSelectCard={onSelectCard}
+            onCreateModal={onCreateModal}
+            clothingItems={clothingItems}
+          />
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
   
   export default Profile;

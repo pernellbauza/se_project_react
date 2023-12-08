@@ -11,7 +11,6 @@ export function getItems() {
   return fetch(`${baseUrl}/items`, {
     headers: {
       "Content-Type": "application/json",
-      // Authorization: `Bearer ${localStorage.getItem("")}
     },
   }).then(processServerResponse);
 }

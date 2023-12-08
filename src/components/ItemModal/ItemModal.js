@@ -1,4 +1,7 @@
-const ItemModal = ({ selectedCard, onClose }) => {
+import "./ItemModal.css";
+import React from "react";
+
+const ItemModal = ({ selectedCard, onClose, onClick }) => {
   return (
     <div className="modal__overlay">
       <div className={`modal`}>
@@ -8,11 +11,23 @@ const ItemModal = ({ selectedCard, onClose }) => {
             type="button"
             onClick={onClose}
           ></button>
-          <img className="modal__image" src={selectedCard.link}></img>
-          <div className="modal__description">
-            <div>{selectedCard.name}</div>
-            <div>weather type: {selectedCard.weather}</div>
+          <img
+            className="modal__image"
+            src={selectedCard.imageUrl}
+            alt={selectedCard.name}
+          ></img>
+          <div className="modal__info-wrapper">
+            <div className="modal__description">
+              <div>{selectedCard.name}</div>
+              <div>Weather Type: {selectedCard.weather}</div>
+            </div>
+            <div className="modal__delete-button_container">
+              <button className="modal__delete-button" onClick={onClick}>
+                Delete Item
+              </button>
+            </div>
           </div>
+          
         </div>
       </div>
     </div>

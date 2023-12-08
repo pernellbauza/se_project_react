@@ -59,19 +59,17 @@
 }
 
 .modal__close-button {
-  background-image: url("../../images/grey-x-button.svg");
+  width: 20px;
+  height: 20px;
+  background-image: ('../images/white-x-button.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
   border: none;
   background-color: transparent;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin: 20px 0 0 448px;
-  position: relative;
-  left: 28px;
-  color: #0000004d;
-  opacity: 1;
+  position: absolute;
+  bottom: calc(100% + -37px);
+  left: calc(100% + -38px);
 }
 
 .modal__description {
@@ -88,9 +86,18 @@
 }
 
 .modal__close-button_image {
-  background-image: url("../../images/white-x-button.svg");
-  margin: 20px 0 0 454px;
-  bottom: 5%;
+  width: 20px;
+  height: 20px;
+  background-image: url('../../images/Union.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  bottom: calc(100% + -25px);
+  left: calc(100% + -35px);
+  color: red;
 }
 
 .modal__form {
@@ -129,9 +136,49 @@
   cursor: not-allowed;
 }
 
-/* .modal__input-container {
+.modal__confirm-content {
+  position: relative;
+  background-color: white;
+  max-width: 670px;
+  width: 100%;
+  border-radius: 20px;
+  padding: 59px 28px;
+  text-align: center;
+  font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  color: black;
+}
 
-} */
+.modal__confirm-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__confirm-button {
+  margin-top: 40px;
+  border: none;
+  background-color: transparent;
+  font-family: "CabinetGrotesk-M", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  color: rgba(255, 77, 0, 1);
+}
+
+.modal__cancel-button {
+  margin-top: 24px;
+  border: none;
+  background-color: transparent;
+  font-family: "CabinetGrotesk-M", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+}
+
+
 
 .modal__label {
   display: flex;

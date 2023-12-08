@@ -1,35 +1,42 @@
-.card_section {
-  margin-top: 20px;
-}
-
-.card_name {
-  display: inline-block;
-  padding: 2px 12px;
-  position: relative;
-  bottom: 90%;
-  background-color: #fff;
-  color: rgba(0, 0, 0, 0.6);
-  font-family: Cabinet Grotesk;
+.card__section {
+  font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
   font-weight: 700;
-  line-height: 20px;
-  border-radius: 4px;
 }
 
-.card_image {
-  width: 328px;
+.card {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
   height: 328px;
-  border-radius: 20px;
 }
 
-.card_image:hover {
+.card__name {
+  position: relative;
+  top: 46px;
+  background-color: white;
+  max-width: 200px;
+  border-radius: 5px;
+  padding: 2px 12px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.card__image {
+  width: 328px;
+  min-height: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-image: cover;
   cursor: pointer;
 }
 
-.card_items {
+.card__items {
+  margin-top: 34px;
   display: flex;
   flex-wrap: wrap;
-  gap: 17px;
+  gap: 20px 18px;
   justify-content: center;
-  margin-top: 20px;
-  text-align: center;
 }

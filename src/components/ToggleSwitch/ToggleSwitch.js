@@ -1,7 +1,15 @@
 import React, { useContext, useState } from "react";
-import "./ToggleSwitch.css";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+import "./ToggleSwitch.css";
+
 const ToggleSwitch = () => {
+  //   const [currentTemperatureUnit, handleToggleSwitchChange] = useState("C");
+
+  //   const handleChange = (e) => {
+  //     if (currentTemperatureUnit === "C") handleToggleSwitchChange("F");
+  //     if (currentTemperatureUnit === "F") handleToggleSwitchChange("C");
+  //   };
+
   const { currentTemperatureUnit, handleToggleSwitchChange } = useContext(
     CurrentTemperatureUnitContext
   );
@@ -21,16 +29,14 @@ const ToggleSwitch = () => {
       ></span>
       <p
         className={`switch__temp-F ${
-          (currentTemperatureUnit === "F" && "switch__active") ||
-          "switch__inactive"
+          currentTemperatureUnit === "F" && "switch__active"
         }`}
       >
         F
       </p>
       <p
         className={`switch__temp-C ${
-          (currentTemperatureUnit === "C" && "switch__active") ||
-          "switch__inactive"
+          currentTemperatureUnit === "C" && "switch__active"
         }`}
       >
         C
