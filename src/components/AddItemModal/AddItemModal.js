@@ -75,7 +75,7 @@ const AddItemModal = ({ handleCloseModal, setActiveModal, onAddItem }) => {
           />
         </label>
       </div>
-      <p className="modal__radio-title">select weather type:</p>
+      <p className="modal__radio-title">Select the weather type:</p>
       <div className="modal__radio-buttons">
         <div>
           <label>

@@ -10,7 +10,7 @@
     background-color: rgba(0, 0, 0, 0.5);
   }
   
-  .modal__content-item{
+  /*.modal__content-item{
     position: relative;
     background-color: white;
     border-radius: 16px;
@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
+  }*/
   
   /*.modal__close-button_image {
     width: 20px;
@@ -39,12 +39,12 @@
     left: calc(100% + -35px);
   }*/
   
-  .modal__image {
+  /*.modal__image {
     border-radius: 10px 10px 0px 0px;
     max-height: 497px;
     max-width: 497px;
     margin-left: -5px;
-  }
+  }*/
   
  .modal__info-wrapper {
     display: flex;

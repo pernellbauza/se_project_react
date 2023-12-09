@@ -4,9 +4,7 @@ const DeleteItemModal = ({ onClose, deleteCard }) => {
   return (
     <div className={`modal delete`}>
       <div className="modal__confirm-content">
-          <button className="modal__close-button">
-              <img src={closeButton} onClick={onClose} alt="Close Button"></img>
-          </button>
+          <button className="modal__content_close-button" src={closeButton} onClick={onClose} alt="Close Button"></button>
           <div>Are you sure you want to delete this item?</div>
           <div>This action is irreversible.</div>
     

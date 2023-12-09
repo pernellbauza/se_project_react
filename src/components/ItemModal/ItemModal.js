@@ -1,4 +1,5 @@
 import "./ItemModal.css";
+import "../ModalWithForm/ModalWithForm.css"
 import React from "react";
 
 const ItemModal = ({ selectedCard, onClose, onClick }) => {
@@ -7,7 +8,7 @@ const ItemModal = ({ selectedCard, onClose, onClick }) => {
       <div className={`modal`}>
         <div className="modal__content modal__content-item">
           <button
-            className="modal__close-button modal__close-button_image"
+            className="modal__item_close-button modal__close-button_image"
             type="button"
             onClick={onClose}
           ></button>
