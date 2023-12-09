@@ -31,9 +31,8 @@ const Header = ({ city, onCreateModal }) => {
           </Link>
         </div>
 
-        <div className="header__date-and-location">
-          <div className="header__date">{currentDate},</div>
-          <div className="header__location">{city}</div>
+        <div>
+          {currentDate}, {city}
         </div>
       </div>
       <div className="header__nav">
