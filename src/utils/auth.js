@@ -1,4 +1,6 @@
-import { BASE_URL, handleServerResponse } from "./api";
+import { BASE_URL } from "./api";
+
+import processServerResponse from "./utils"
 
 export const register = ({ name, avatar, email, password }) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -7,7 +9,7 @@ export const register = ({ name, avatar, email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, avatar, email, password }),
-  }).then(handleServerResponse);
+  }).then(processServerResponse);
 };
 
 export const login = ({ email, password }) => {
@@ -17,5 +19,5 @@ export const login = ({ email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(handleServerResponse);
+  }).then(processServerResponse);
 };
