@@ -1,41 +1,86 @@
-import { processServerResponse } from "./utils";
+export const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://api.whatweather.csproject.org"
+    : "http://localhost:3001";
 
-export const baseUrl = "http://localhost:3001";
-// GET https://localhost:3001/items
+export const handleServerResponse = (res) => {
+  return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+};
 
-export function request(url, options) {
-  return fetch(url, options).then(processServerResponse);
-}
-
-export function getItems() {
-  return fetch(`${baseUrl}/items`, {
+const getItemList = () => {
+  return fetch(`${BASE_URL}/items`, {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then(processServerResponse);
-}
+  }).then(handleServerResponse);
+};
 
-// POST https://localhost:3001/items
+const addItem = ({ name, imageUrl, weather }) => {
+  return fetch(`${BASE_URL}/items`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+    body: JSON.stringify({
+      name,
+      imageUrl,
+      weather,
+    }),
+  }).then(handleServerResponse);
+};
 
-export const postItems = ({ name, imageUrl, weather }) => {
-    return fetch(`${baseUrl}/items`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        imageUrl,
-        weather,
-      }),
-    }).then(processServerResponse);
-  };
-
-// DELETE https://localhost:3001/items/:id
-
-export function deleteItems(id) {
-  return fetch(`${baseUrl}/items/${id}`, {
+const removeItem = (id) => {
+  return fetch(`${BASE_URL}/items/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
-  }).then(processServerResponse);
-}
+  }).then(handleServerResponse);
+};
+
+const addCardLike = (id, isLiked, setIsLiked) => {
+  return fetch(`${BASE_URL}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+  })
+    .then(setIsLiked(!isLiked))
+    .then(handleServerResponse);
+};
+
+const removeCardLike = (id, isLiked, setIsLiked) => {
+  return fetch(`${BASE_URL}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+  })
+    .then(setIsLiked(!isLiked))
+    .then(handleServerResponse);
+};
+
+const editProfile = ({ name, avatar }) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  }).then(handleServerResponse);
+};
+
+const api = {
+  getItemList,
+  addItem,
+  removeItem,
+  handleServerResponse,
+  addCardLike,
+  removeCardLike,
+  editProfile,
+};
+
+export default api;

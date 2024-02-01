@@ -1,103 +1,70 @@
-import { useState } from "react";
-import { parseWeatherData } from "../../utils/WeatherApi";
 import "./Header.css";
-import headerLogo from "../../images/headerLogo.svg";
-import avatarImage from "../../images/headerAvatar.svg";
-import mobileCloseButton from "../../images/Mobile Menu Close Button.svg";
-import mobileNavButton from "../../images/Mobile Nav Button.svg";
+import { currentDate } from "../../utils/constants";
+import logo from "../../images/logo.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import React from "react";
 
-const Header = ({ city, onCreateModal }) => {
-  const currentDate = new Date().toLocaleString("default", {
-    month: "long",
-    day: "numeric",
-  });
-  const username = "Terrence Tegegne";
-  const avatar = "";
-  const [isMobileMenuOpened, setMobileMenuOpened] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpened(!isMobileMenuOpened);
-  };
-  //const city = weatherData && weatherData.city ? `, ${weatherData.city}` : '';
+const Header = ({
+  place,
+  onCreateModal,
+  isLoggedIn,
+  onLoginModal,
+  onRegisterModal,
+  firstLetter,
+}) => {
+  const currentUser = React.useContext(CurrentUserContext);
 
   return (
     <header className="header">
-      <div className="header__logo-container">
-        <div>
-          <Link to="/">
-            <img className="header__logo" src={headerLogo} alt="Header Logo" />
-          </Link>
-        </div>
-
-        <div>
-          {currentDate}, {city}
-        </div>
-      </div>
-      <div className="header__nav">
-        <ToggleSwitch />
-        <div>
-          <button
-            className="header__button"
-            type="text"
-            onClick={onCreateModal}
-          >
-            + Add Clothes
-          </button>
-        </div>
-        <Link className="header__username" to="/profile">
-          {username}
+      <div className="header__logo">
+        <Link to="/">
+          <img src={logo} alt="logo" />
         </Link>
-        <div>
-          <img
-            className="header__avatar-logo"
-            src={avatarImage}
-            alt="Avatar Logo"
-          />
+
+        <div className="header__date">
+          {currentDate}, {place}
         </div>
       </div>
 
-      <div
-        className={`navigation-container ${
-          isMobileMenuOpened ? "mobile-menu-opened" : ""
-        }`}
-      >
-        <button onClick={toggleMobileMenu} className="menu-button">
-          {isMobileMenuOpened ? (
-            <img
-              className="mobile__close-button"
-              src={mobileCloseButton}
-              alt="Close"
-            />
-          ) : (
-            <img
-              className="mobile__nav-button"
-              src={mobileNavButton}
-              alt="Menu"
-            />
-          )}
-        </button>
-        {isMobileMenuOpened && (
-          <div className="mobile__menu">
-            <div>
-              <div className="mobile__avatar-container">
-                <div>{username}</div>
+      <div className="header__avatar-logo">
+        <ToggleSwitch />
+
+        {isLoggedIn ? (
+          <>
+            <button
+              className="header__button"
+              type="text"
+              onClick={onCreateModal}
+            >
+              + Add Clothes
+            </button>
+            {currentUser.avatar ? (
+              <div className="header__avatar-container">
                 <img
-                  className="mobile__avatar-logo"
-                  src={avatarImage}
-                  alt="Avatar Logo"
+                  className="header__avatar"
+                  src={currentUser.avatar}
+                  alt="avatar"
                 />
               </div>
-              <button
-                className="mobile__header__button"
-                type="text"
-                onClick={onCreateModal}
-              >
-                + Add Clothes
-              </button>
+            ) : (
+              <div className="header__avatar-placeholder">{firstLetter}</div>
+            )}
+
+            <Link to="/profile" className="header__name">
+              {`${currentUser.name}`}
+            </Link>
+          </>
+        ) : (
+          <>
+            <div className="header__register" onClick={onRegisterModal}>
+              Register
             </div>
-          </div>
+            <div className="header__login" onClick={onLoginModal}>
+              Log In
+            </div>
+          </>
         )}
       </div>
     </header>
@@ -106,3 +73,6 @@ const Header = ({ city, onCreateModal }) => {
 
 export default Header;
 
+{
+  /*  */
+}

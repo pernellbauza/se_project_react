@@ -1,40 +1,34 @@
 .weather {
   position: relative;
-  margin-bottom: 40px;
+  display: flex;
+  margin: 0px auto 0px;
+  align-items: center;
+  min-height: 80px;
+  max-width: 1360px;
+  right: 0;
+  overflow-x: hidden;
+  border-radius: 12px;
 }
 
-.weather__info {
+.weather__temp {
   position: absolute;
-  top: 10px;
-  left: 16px;
-  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  /* top: 12px;
+  left: 16px; */
+  align-self: center;
+  margin-left: 16px;
+  color: white;
   font-size: 36px;
   line-height: 40px;
   font-weight: 700;
-  color: white;
+  font-family: "Cabinet Grotesk", sans-serif;
+  z-index: 0;
 }
 
 .weather__image {
-  width: 100%;
-}
-
-@media screen and (min-width: 320px) and (max-width: 425px) {
-  .weather {
-    margin-bottom: 30px;
-    height: 80px;
-    width: 100%;
-    overflow: hidden;
-
-    border-radius: 11px;
-  }
-
-  .weather__info {
-    z-index: 1;
-    top: 20px;
-  }
-
-  /*.weather__image {
-    background-image: url(../../images/night/WeatherNightMoonCloud.svg);
-    height: 80px;
-  }*/
+  position: absolute;
+  right: 0;
+  min-width: 100%;
+  min-height: 80px;
+  flex-shrink: 0;
+  z-index: -1;
 }

@@ -1,23 +1,34 @@
-import React from 'react';
-import SideBar from "./SideBar";
-import ClothesSection from "./ClothesSection";
 import "./Profile.css";
+import ItemCard from "../ItemCard/ItemCard";
+import React from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import ClothesSection from "../ClothesSection/ClothesSection";
+import SideBar from "../SideBar/SideBar";
 
-const Profile = ({ clothingItems, onSelectCard, onCreateModal }) => {
-    return (
-      <div className="profile">
-        <div className="profile__sidebar">
-          <SideBar />
-        </div>
-        <div>
-          <ClothesSection
-            onSelectCard={onSelectCard}
-            onCreateModal={onCreateModal}
-            clothingItems={clothingItems}
-          />
-        </div>
-      </div>
-    );
-  };
-  
-  export default Profile;
+const Profile = ({
+  clothingItems,
+  handleSelectedCard,
+  handleAddNew,
+  handleEditProfileModal,
+  onCardLike,
+  handleLogOut,
+}) => {
+  const currentUser = React.useContext(CurrentUserContext);
+
+  return (
+    <div className="profile">
+      <SideBar
+        handleEditProfileModal={handleEditProfileModal}
+        handleLogOut={handleLogOut}
+      />
+      <ClothesSection
+        onCardLike={onCardLike}
+        clothingItems={clothingItems}
+        handleAddNew={handleAddNew}
+        handleSelectedCard={handleSelectedCard}
+      />
+    </div>
+  );
+};
+
+export default Profile;
