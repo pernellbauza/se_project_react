@@ -1,3 +1,16 @@
+# Backend Repo Link
+
+https://github.com/pernellbauza/se_project_express.git
+
+# WTWR (What to Wear?)
+
+## About the project
+
+The idea of the application is pretty simple - it makes a call to an API, which then responds with the daily weather forecast. The weather data is collected, processed, and then based on the forecast, outfits suitable for the weather in the user's location are displayed.
+
+The project is built using React, React Router, Node.js, MongoDB, Express, GCP, and JWT Auth.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
