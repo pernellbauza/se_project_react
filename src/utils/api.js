@@ -1,7 +1,4 @@
-export const BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://api.whatweather.csproject.org"
-    : "http://localhost:3001";
+export const BASE_URL = "http://localhost:3001";
 
 export const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
