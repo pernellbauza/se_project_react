@@ -172,8 +172,8 @@ function App() {
     return api
       .editProfile({ name, avatar })
       .then((updated) => {
-        console.log(updated.user);
-        setCurrentUser(updated.user);
+        console.log(updated.data);
+        setCurrentUser(updated.data);
         handleCloseModal();
       })
       .catch((err) => console.log(err))
