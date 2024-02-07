@@ -14,10 +14,16 @@ const WeatherCard = ({ isDay, type, weatherTemp }) => {
     return condition.isDay === isDay && condition.type === type;
   });
 
-  const currentWeatherUrl = currentWeather?.url;
+    // Define the default background color
+    const defaultBackgroundColor = "blue";
+
+    // Determine the background color based on the availability of weather data
+    const backgroundColor = currentWeather ? "" : defaultBackgroundColor;
+
+  const currentWeatherUrl = currentWeather?.url || "../images/blue.jpg";
 
   return (
-    <div className="weather" id="weather">
+    <div className="weather" id="weather" style={{ backgroundColor }}>
       <div className="weather__temp">
         {weatherTemp} °{currentTemperatureUnit}
       </div>
@@ -31,3 +37,4 @@ const WeatherCard = ({ isDay, type, weatherTemp }) => {
 };
 
 export default WeatherCard;
+

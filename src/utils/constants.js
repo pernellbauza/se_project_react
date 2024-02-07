@@ -48,7 +48,10 @@ export const weatherList = [
     isDay: true,
     type: "cloudy",
   },
-  { url: require("../images/day/fog.svg").default, isDay: true, type: "fog" },
+  { url: require("../images/day/fog.svg").default, 
+    isDay: true, 
+    type: "fog" 
+  },
   {
     url: require("../images/day/rain.svg").default,
     isDay: true,
