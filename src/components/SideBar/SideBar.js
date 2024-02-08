@@ -11,9 +11,9 @@ const SideBar = ({ handleEditProfileModal, handleLogOut }) => {
         <img
           className="sidebar__avatar"
           src={currentUser.avatar}
-          alt="avatar"
+          alt={currentUser.name}
         />
-        <div className="sidebar__name">{currentUser.name}</div>
+        <h3 className="sidebar__name">{currentUser.name}</h3>
       </div>
       <div className="sidebar__change-data" onClick={handleEditProfileModal}>
         Change Profile Data

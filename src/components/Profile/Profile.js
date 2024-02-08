@@ -13,7 +13,6 @@ const Profile = ({
   onCardLike,
   handleLogOut,
 }) => {
-  const currentUser = React.useContext(CurrentUserContext);
 
   return (
     <div className="profile">

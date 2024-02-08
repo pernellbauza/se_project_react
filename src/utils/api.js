@@ -44,8 +44,12 @@ const addCardLike = (id, isLiked, setIsLiked) => {
       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
   })
-    .then(setIsLiked(!isLiked))
-    .then(handleServerResponse);
+    .then(() => setIsLiked(!isLiked))
+    .then(handleServerResponse)
+    .catch((err) => {
+      console.error(err);
+      return Promise.reject(err);
+    });
 };
 
 const removeCardLike = (id, isLiked, setIsLiked) => {
@@ -55,8 +59,12 @@ const removeCardLike = (id, isLiked, setIsLiked) => {
       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
   })
-    .then(setIsLiked(!isLiked))
-    .then(handleServerResponse);
+    .then(() => setIsLiked(!isLiked))
+    .then(handleServerResponse)
+    .catch((err) => {
+      console.error(err);
+      return Promise.reject(err);
+    });
 };
 
 const editProfile = ({ name, avatar }) => {

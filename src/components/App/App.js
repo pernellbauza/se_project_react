@@ -85,7 +85,9 @@ function App() {
       .then(() => {
         handleCloseModal();
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        console.error(err);
+      })
       .finally(() => setIsLoading(false));
   };
   const handleDeleteItem = () => {
@@ -100,17 +102,20 @@ function App() {
       .then(() => {
         handleCloseModal();
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        console.error(err);
+      })
       .finally(() => setIsLoading(false));
   };
 
-  const handleLogin = ({ email, password }) => {
-    setIsLoading(true);
-    return login({ email, password }).then((res) => {
+const handleLogin = ({ email, password }) => {
+  setIsLoading(true);
+  return login({ email, password })
+    .then((res) => {
       if (res.token) {
         localStorage.setItem("jwt", res.token);
         setIsLoggedIn(true);
-        checkToken(res.token)
+        return checkToken(res.token)
           .then((user) => {
             setCurrentUser(user);
             if (!user.avatar) {
@@ -118,14 +123,17 @@ function App() {
             }
             history.push("/profile");
             handleCloseModal();
-          })
-          .catch((err) => {
-            console.log(err);
-          })
-          .finally(() => setIsLoading(false));
+          });
       }
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      setIsLoading(false);
     });
-  };
+};
+
 
   const handleRegister = (data) => {
     console.log(data);
@@ -136,7 +144,9 @@ function App() {
         history.push("/");
         handleCloseModal();
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        console.error(err);
+      })
       .finally(() => setIsLoading(false));
   };
 
@@ -149,7 +159,9 @@ function App() {
               cards.map((c) => (c.owner === id ? updatedCard : c))
             );
           })
-          .catch((err) => console.log(err))
+          .catch((err) => {
+            console.error(err);
+          })
       : api
           .addCardLike(id, isLiked, setIsLiked)
           .then((updatedCard) => {
@@ -157,7 +169,7 @@ function App() {
               cards.map((c) => (c.owner === id ? updatedCard : c))
             );
           })
-          .catch((err) => console.log(err));
+          .catch(console.error);
   };
 
   const handleLogOut = () => {
@@ -176,7 +188,9 @@ function App() {
         setCurrentUser(updated.data);
         handleCloseModal();
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        console.error(err);
+      })
       .finally(() => setIsLoading(false));
   };
 
