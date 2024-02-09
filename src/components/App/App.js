@@ -244,7 +244,9 @@ const handleLogin = ({ email, password }) => {
       .then((items) => {
         setClothingItems(items);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.error(err);
+      })
   }, []);
 
   React.useEffect(() => {
@@ -282,7 +284,9 @@ const handleLogin = ({ email, password }) => {
         .then(() => {
           history.push("/");
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.error(err);
+        })
     }
   }, []);
 
