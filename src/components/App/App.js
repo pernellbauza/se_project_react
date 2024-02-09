@@ -151,25 +151,30 @@ const handleLogin = ({ email, password }) => {
   };
 
   const handleCardLike = ({ id, isLiked, setIsLiked }) => {
-    isLiked
-      ? api
-          .removeCardLike(id, isLiked, setIsLiked)
+   if (isLiked) {
+        api
+          .removeCardLike(id)
           .then((updatedCard) => {
             setClothingItems((cards) =>
               cards.map((c) => (c.owner === id ? updatedCard : c))
             );
+            setIsLiked(false);
           })
           .catch((err) => {
             console.error(err);
           })
-      : api
-          .addCardLike(id, isLiked, setIsLiked)
+        }
+      else  {
+        api
+          .addCardLike(id)
           .then((updatedCard) => {
             setClothingItems((cards) =>
               cards.map((c) => (c.owner === id ? updatedCard : c))
             );
+            setIsLiked(true);
           })
           .catch(console.error);
+        }
   };
 
   const handleLogOut = () => {

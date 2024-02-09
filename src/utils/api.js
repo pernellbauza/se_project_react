@@ -1,6 +1,7 @@
 export const BASE_URL = "http://localhost:3001";
 
 export const handleServerResponse = (res) => {
+  console.log(res);
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
@@ -37,14 +38,13 @@ const removeItem = (id) => {
   }).then(handleServerResponse);
 };
 
-const addCardLike = (id, isLiked, setIsLiked) => {
+const addCardLike = (id) => {
   return fetch(`${BASE_URL}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
   })
-    .then(() => setIsLiked(!isLiked))
     .then(handleServerResponse)
     .catch((err) => {
       console.error(err);
@@ -52,14 +52,13 @@ const addCardLike = (id, isLiked, setIsLiked) => {
     });
 };
 
-const removeCardLike = (id, isLiked, setIsLiked) => {
+const removeCardLike = (id) => {
   return fetch(`${BASE_URL}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
   })
-    .then(() => setIsLiked(!isLiked))
     .then(handleServerResponse)
     .catch((err) => {
       console.error(err);
