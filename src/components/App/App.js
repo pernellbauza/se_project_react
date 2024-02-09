@@ -173,7 +173,9 @@ const handleLogin = ({ email, password }) => {
             );
             setIsLiked(true);
           })
-          .catch(console.error);
+          .catch((err) => {
+            console.error(err);
+          })
         }
   };
 

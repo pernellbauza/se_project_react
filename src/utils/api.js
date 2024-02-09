@@ -46,10 +46,6 @@ const addCardLike = (id) => {
     },
   })
     .then(handleServerResponse)
-    .catch((err) => {
-      console.error(err);
-      return Promise.reject(err);
-    });
 };
 
 const removeCardLike = (id) => {
@@ -60,10 +56,6 @@ const removeCardLike = (id) => {
     },
   })
     .then(handleServerResponse)
-    .catch((err) => {
-      console.error(err);
-      return Promise.reject(err);
-    });
 };
 
 const editProfile = ({ name, avatar }) => {
