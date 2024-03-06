@@ -1,5 +1,5 @@
 import React from "react";
-import "./EditProfileModal.css";
+//import "./EditProfileModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
