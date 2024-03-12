@@ -1,7 +1,7 @@
 import "./Profile.css";
-import ItemCard from "../ItemCard/ItemCard";
+//import ItemCard from "../ItemCard/ItemCard";
 import React from "react";
-import CurrentUserContext from "../../contexts/CurrentUserContext";
+//import CurrentUserContext from "../../contexts/CurrentUserContext";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import SideBar from "../SideBar/SideBar";
 

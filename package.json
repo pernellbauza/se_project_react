@@ -2,7 +2,7 @@
   "name": "se_project_react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.wtwr2.jumpingcrab.com",
+  "homepage": "https://www.wtwr.awiki.org",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -10,6 +10,8 @@
     "body-parser": "^1.20.2",
     "content-disposition": "^0.5.4",
     "cors": "^2.8.5",
+    "css-loader": "^6.10.0",
+    "cssnano": "^6.1.0",
     "express": "^4.18.2",
     "mongoose": "^8.0.3",
     "react": "^18.2.0",
@@ -24,7 +26,7 @@
     "test": "jest",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./build/* pernellbauza@wtwr2.jumpingcrab.com:/home/pernellbauza/frontend"
+    "deploy": "npm run build && scp -r -i /home/pernellb/.ssh/id_ed25519 ./build/* pernellbauza@wtwr.awiki.org:/home/pernellbauza/frontend"
   },
   "eslintConfig": {
     "extends": [
@@ -42,10 +44,10 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]  
+    ]
   },
-    "devDependencies": {
-      "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-      "jest": "^27.5.1"
-    }
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "jest": "^27.5.1"
+  }
 }
