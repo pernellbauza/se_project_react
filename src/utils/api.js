@@ -1,6 +1,6 @@
 export const BASE_URL =
   process.env.NODE_ENV === "production"
-  ? "https://wtwr.awiki.org"
+  ? "https://api.wtwr.awiki.org"
   : "http://localhost:3001";
 
 export const handleServerResponse = (res) => {
