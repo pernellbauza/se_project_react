@@ -7,12 +7,6 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "body-parser": "^1.20.2",
-    "content-disposition": "^0.5.4",
-    "cors": "^2.8.5",
-    "cssnano": "^6.1.0",
-    "express": "^4.18.2",
-    "mongoose": "^8.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.3.4",
@@ -22,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "npm run build && scp -r -i /home/pernellb/.ssh/id_ed25519 ./build/* pernellbauza@wtwr.awiki.org:/home/pernellbauza/frontend"
@@ -46,11 +40,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "css-loader": "^6.10.0",
-    "jest": "^27.5.1",
-    "style-loader": "^3.3.4",
-    "webpack": "^5.90.3",
-    "webpack-cli": "^5.1.4"
+    "gh-pages": "^6.0.0",
+    "@babel/plugin-proposal-private-property-in-object":"^7.21.11"
   }
 }
