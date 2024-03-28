@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r -i /home/pernellb/.ssh/id_ed25519 ./build/* pernellbauza@wtwr.awiki.org:/home/pernellbauza/frontend"
+    "deploy": "npm run build && scp -r ./build/* pernellbauza@wtwr.awiki.org:/home/pernellbauza/frontend"
   },
   "eslintConfig": {
     "extends": [
